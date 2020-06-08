@@ -31,7 +31,7 @@ int main(int argc, const char * argv[]) {
     cout << "\n\n" << endl;
     
     
-    cout << "Lab 6 part 2 variant 9/\ Hrytsiuk Volodymyr IP-92" << endl;
+    cout << "Lab 6 part 2 variant 9/\nHrytsiuk Volodymyr IP-92" << endl;
     cout << "For int:" << endl;
     container<int> arr(5);
     arr.add_element(2);

@@ -1,0 +1,43 @@
+Lab 6 part 1
+Lab 6 variant 8
+Hrytsiuk Volodymyr IP-92
+
+Area of the cube with the side 2 is 24 squared units
+Volume of the cube with side 2 is 8 cubic units 
+
+
+Area of tetrahedron with side 3 is 15.5885 squred units 
+Volume of tetrahedron with side 3 is 3.18198 cubic units
+
+
+Area of parallelepiped with sides 1x2x3 is 22 squared units
+Volume  of parallelepiped with sides 1x2x3 is 6 cubic units
+
+
+
+Lab 6 part 2 variant 9/
+Hrytsiuk Volodymyr IP-92
+For int:
+2 5 14 7 1 
+Sotrted ints:
+1 2 5 7 14 
+
+For char:
+1 9 5 
+Sorted chars:
+1 5 9 
+
+For string:
+101 9 5 
+Sorted string:
+101 5 9 
+
+For char*:
+12345 11234 111231 3254 
+Sorted char*
+111231 11234 12345 3254 
+
+For Hex:
+AAF95837 AAC94385 AD284934 453 4AD  ABC 
+Sorted hexes:
+ 453 4AD ABC AAC94385 AAF95837 AD284934 
