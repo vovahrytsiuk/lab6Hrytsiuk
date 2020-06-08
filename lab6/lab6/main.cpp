@@ -12,6 +12,7 @@
 #include "source1.hpp"
 
 int main(int argc, const char * argv[]) {
+    
     cout << "Lab 6 part 1" << endl;
     cout << "Lab 6 variant 8\nHrytsiuk Volodymyr IP-92" << endl;
     stereoFigure* pointer;
@@ -28,6 +29,8 @@ int main(int argc, const char * argv[]) {
     pointer->set(1, 2, 3);
     pointer->print();
     cout << "\n\n" << endl;
+    
+    
     cout << "Lab 6 part 2 variant 9/\ Hrytsiuk Volodymyr IP-92" << endl;
     cout << "For int:" << endl;
     container<int> arr(5);
@@ -79,7 +82,9 @@ int main(int argc, const char * argv[]) {
     carr.add_element(s4);
     carr.print();
     cout << "Sorted char*" << endl;
+    carr.selection_sort();
     carr.print();
+    cout << endl;
     
 
     cout << "For Hex:" << endl;

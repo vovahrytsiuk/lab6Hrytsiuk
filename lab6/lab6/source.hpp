@@ -137,51 +137,37 @@ class container<char*>
     int size;
     int index;
     bool is_less(char* str1, char*str2){
-        int i = 0;
-        while(str1[i] == str2[i] &&  i < strlen(str1) && i < strlen(str2)){
-            i++;
+        for(int i = 0; i < strlen(str1) && i < strlen(str2); i++){
+            if(str1[i] < str2[i]){
+                return true;
+            }
+            if(str1[i] > str2[i]){
+                return false;
+            }
         }
-        if(str1[i] < str2[i]) return true;
+        if(strlen(str1) < strlen(str2)) return true;
         return false;
     }
 public:
     container(int size){
         size = size;
         arr = new char*[size];
-       
         index=0;
     }
     void print(){
-           for(int i = 0; i < index; i++){
-               cout << arr[i] << " ";
-                  }
-                  cout << endl;
+        for(int i = 0; i < index; i++){
+            cout << arr[i] << " ";
+        }
+        cout << endl;
     }
     void add_element(char* value){
-        cout << "add" << endl;
-        if(index < size){
-            char* newstr = "";
-            strcpy(newstr, value);
-            cout << newstr << endl;
-            cout << value << endl;
-            arr[index] = newstr;
-           
-            
+        int length = strlen(value);
+        arr[index] = new char[length+1];
+        for(int i = 0; i < length; i++){
+            arr[index][i] = value[i];
+        }
+        arr[index][length] = '\0';
         index++;
-        }
-        else{
-            int newsize = size*2;
-            char** newarr = new char*[newsize];
-            index = 0;
-            for(; index < size; index++){
-                newarr[index] = arr[index];
-            }
-            newarr[index+1] = value;
-            index++;
-            delete[] arr;
-            arr = newarr;
-            size = newsize;
-        }
     }
     
     void selection_sort(){
