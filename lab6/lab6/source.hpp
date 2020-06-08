@@ -11,10 +11,47 @@
 
 #include <stdio.h>
 
+
 #include <iostream>
 #include <string>
 
 using namespace std;
+
+
+class HEX{
+    string number;
+public:
+    HEX(){}
+    HEX(string number){this->number = number;}
+    bool operator<(HEX &num2){
+        if(this->number.length() < num2.number.length()){
+            return true;
+        }
+        else if(this->number.length() > num2.number.length()){
+            return false;
+        }
+        else{
+            for(int i = 0; i < this->number.length(); i++){
+                if(this->number[i] < num2.number[i]){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    friend std::ostream& operator<< (std::ostream &out, const HEX &point)
+    {
+        out << point.number << endl;
+     
+        return out;
+    }
+    void set_number(string newnumber){
+        this->number = newnumber;
+    }
+    
+    
+    
+};
 
 
 template<class T>
@@ -47,7 +84,7 @@ public:
                 newarr[index] = arr[index];
             }
             newarr[index+1] = value;
-            index++;
+            index+=2;
             delete[] arr;
             arr = newarr;
             size = newsize;
@@ -97,7 +134,7 @@ class container<char*>
     int index;
     bool is_less(char* str1, char*str2){
         int i = 0;
-        while(str1[i] == str2[i]){
+        while(str1[i] == str2[i] && str1[i] != '\0' && str2[i] !='\0'){
             i++;
         }
         if(str1[i] < str2[i]) return true;
@@ -115,9 +152,11 @@ public:
                   }
                   cout << endl;
     }
-    void add_element(char* value){
+    void add_element(char* value, int length){
         if(index < size){
-        arr[index] = value;
+            arr[index] = new char[length+1];
+            strcpy(arr[index], value);
+            
         index++;
         }
         else{
@@ -155,7 +194,7 @@ public:
                        arr[idx_i] = temp;
                    }
                }
-    }
+        }
     
 };
 
