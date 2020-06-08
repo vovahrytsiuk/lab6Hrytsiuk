@@ -11,8 +11,7 @@
 #include "source.hpp"
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    cout << "For int:" << endl;
     container<int> arr(5);
     arr.add_element(2);
     arr.add_element(5);
@@ -21,25 +20,35 @@ int main(int argc, const char * argv[]) {
     arr.add_element(1);
     arr.print();
     arr.selection_sort();
+    cout << "Sotrted ints:" << endl;
     arr.print();
-    container<char*> strarr(5);
-    char* str1 = "101";
+    cout << endl;
+    
+    cout << "For char:" << endl;
+    container<char> strarr(5);
+    char str1 = '1';
     strarr.add_element(str1);
-    char* str2 = "9";
+    char str2 = '9';
     strarr.add_element(str2);
-    char*str3 = "5";
+    char str3 = '5';
     strarr.add_element(str3);
     strarr.print();
     strarr.selection_sort();
+    cout << "Sorted chars:" << endl;
     strarr.print();
+    cout << endl;
     
-    
+    cout << "For char*:" << endl;
     container<string> strc(5);
     strc.add_element("101");
     strc.add_element("9");
     strc.add_element("5");
     strc.print();
     strc.selection_sort();
+    cout << "Sorted char*:" << endl;
     strc.print();
+    cout << endl;
+    
+    cout << "For string:" << endl;
     return 0;
 }

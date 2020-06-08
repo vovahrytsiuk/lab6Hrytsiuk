@@ -55,11 +55,11 @@ public:
     }
     
     void selection_sort(){
-        for (size_t idx_i = 0; idx_i < size - 1; idx_i++)
+        for (size_t idx_i = 0; idx_i < index - 1; idx_i++)
                {
                    size_t min_idx = idx_i;
                
-                   for (size_t idx_j = idx_i + 1; idx_j < size; idx_j++)
+                   for (size_t idx_j = idx_i + 1; idx_j < index; idx_j++)
                    {
                        if (arr[idx_j] < arr[min_idx])
                        {
@@ -88,6 +88,76 @@ public:
     }
 };
 
+
+template<>
+class container<char*>
+{
+    char** arr;
+    int size;
+    int index;
+    bool is_less(char* str1, char*str2){
+        int i = 0;
+        while(str1[i] == str2[i]){
+            i++;
+        }
+        if(str1[i] < str2[i]) return true;
+        return false;
+    }
+public:
+    container(int size){
+        size = size;
+        arr = new char*[size];
+        index=0;
+    }
+    void print(){
+           for(int i = 0; i < index; i++){
+                      cout << arr[i] << " " ;
+                  }
+                  cout << endl;
+    }
+    void add_element(char* value){
+        if(index < size){
+        arr[index] = value;
+        index++;
+        }
+        else{
+            int newsize = size*2;
+            char** newarr = new char*[newsize];
+            index = 0;
+            for(; index < size; index++){
+                newarr[index] = arr[index];
+            }
+            newarr[index+1] = value;
+            index++;
+            delete[] arr;
+            arr = newarr;
+            size = newsize;
+        }
+    }
+    
+    void selection_sort(){
+        for (size_t idx_i = 0; idx_i < index - 1; idx_i++)
+               {
+                   size_t min_idx = idx_i;
+               
+                   for (size_t idx_j = idx_i + 1; idx_j < index; idx_j++)
+                   {
+                       if (is_less(arr[idx_j], arr[min_idx]))
+                       {
+                        min_idx = idx_j;
+                       }
+                   }
+
+                   if (min_idx != idx_i)
+                   {
+                       char* temp = arr[min_idx];
+                       arr[min_idx] = arr[idx_i];
+                       arr[idx_i] = temp;
+                   }
+               }
+    }
+    
+};
 
 
 
