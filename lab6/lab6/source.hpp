@@ -24,6 +24,7 @@ public:
     HEX(){}
     HEX(string number){this->number = number;}
     bool operator<(HEX &num2){
+        
         if(this->number.length() < num2.number.length()){
             return true;
         }
@@ -35,13 +36,16 @@ public:
                 if(this->number[i] < num2.number[i]){
                     return true;
                 }
+                if(this->number[i] > num2.number[i]){
+                    return false;
+                }
             }
         }
         return false;
     }
     friend std::ostream& operator<< (std::ostream &out, const HEX &point)
     {
-        out << point.number << endl;
+        out << point.number ;
      
         return out;
     }
@@ -134,7 +138,7 @@ class container<char*>
     int index;
     bool is_less(char* str1, char*str2){
         int i = 0;
-        while(str1[i] == str2[i] && str1[i] != '\0' && str2[i] !='\0'){
+        while(str1[i] == str2[i] &&  i < strlen(str1) && i < strlen(str2)){
             i++;
         }
         if(str1[i] < str2[i]) return true;
@@ -144,18 +148,24 @@ public:
     container(int size){
         size = size;
         arr = new char*[size];
+       
         index=0;
     }
     void print(){
            for(int i = 0; i < index; i++){
-                      cout << arr[i] << " " ;
+               cout << arr[i] << " ";
                   }
                   cout << endl;
     }
-    void add_element(char* value, int length){
+    void add_element(char* value){
+        cout << "add" << endl;
         if(index < size){
-            arr[index] = new char[length+1];
-            strcpy(arr[index], value);
+            char* newstr = "";
+            strcpy(newstr, value);
+            cout << newstr << endl;
+            cout << value << endl;
+            arr[index] = newstr;
+           
             
         index++;
         }

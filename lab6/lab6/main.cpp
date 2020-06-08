@@ -9,8 +9,26 @@
 #include <iostream>
 #include <string>
 #include "source.hpp"
+#include "source1.hpp"
 
 int main(int argc, const char * argv[]) {
+    cout << "Lab 6 part 1" << endl;
+    cout << "Lab 6 variant 8\nHrytsiuk Volodymyr IP-92" << endl;
+    stereoFigure* pointer;
+    cube c;
+    tetrahedron t;
+    parellelepiped p;
+    pointer = &c;
+    pointer->set(2);
+    pointer->print();
+    pointer = &t;
+    pointer->set(3);
+    pointer->print();
+    pointer = &p;
+    pointer->set(1, 2, 3);
+    pointer->print();
+    cout << "\n\n" << endl;
+    cout << "Lab 6 part 2 variant 9/\ Hrytsiuk Volodymyr IP-92" << endl;
     cout << "For int:" << endl;
     container<int> arr(5);
     arr.add_element(2);
@@ -49,19 +67,19 @@ int main(int argc, const char * argv[]) {
     strc.print();
     cout << endl;
     
-//    cout << "For char*:" << endl;
-//    container<char*> carr(5);
-//    char* s1 = "12345";
-//    char* s2 = "11234";
-//    char* s3 = "111234";
-//    char* s4 = "2456";
-//    carr.add_element(s1, 5);
-//    carr.add_element(s2, 5);
-//    carr.add_element(s3, 6);
-//    carr.add_element(s4, 4);
-//    carr.print();
-//    cout << "Sorted char*" << endl;
-//    carr.print();
+    cout << "For char*:" << endl;
+    container<char*> carr(5);
+    char* s1 = "12345";
+    char* s2 = "11234";
+    char* s3 = "111231";
+    char* s4 = "3254";
+    carr.add_element(s1);
+    carr.add_element(s2);
+    carr.add_element(s3);
+    carr.add_element(s4);
+    carr.print();
+    cout << "Sorted char*" << endl;
+    carr.print();
     
 
     cout << "For Hex:" << endl;
@@ -82,9 +100,5 @@ int main(int argc, const char * argv[]) {
     harr.selection_sort();
     cout << "Sorted hexes:" << endl;
     harr.print();
-    char a = 'A';
-    char b = 'F';
-    bool w = a<b;
-    cout << w;
     return 0;
 }
